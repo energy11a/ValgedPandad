@@ -1,15 +1,18 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
-public class MainMenu : MonoBehaviour
+public class Mainmenu : MonoBehaviour
 {
-    public void Play(){
-        Debug.Log("Play");
+   [SerializeField] AudioMixer mixer;
+
+    public void ChangeVolume(float volume)
+    {
+        mixer.SetFloat("Volume", volume);
     }
 
-    public void Exit(){
-
-        Debug.Log("Tere");   
-
-        Application.Quit();
+    private void Awake()
+    {
+        AudioManager.instance.Play("Tetris");
     }
+
 }
