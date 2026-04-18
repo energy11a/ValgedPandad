@@ -20,7 +20,7 @@ public class PersistentRandomSpace : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            AudioManager.instance.PlayRandom();
+            AudioManager.instance.PlayRandomSounds(new string[] { "Signaal", "vintage", "vana", "Tavaline", "jarjest", "2korda" });
         }
         
         if (hasHonkTarget)

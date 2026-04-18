@@ -44,27 +44,24 @@ public class AudioManager : MonoBehaviour {
             return;
         s.source.Play();
     }
-    public void PlayRandom()
+    public void PlayRandomSounds(string[] names)
     {
-        if (sounds == null || sounds.Length == 0)
+        if (names == null || names.Length == 0)
             return;
 
         if (IsAnyPlaying())
             return;
-        Sound s;
-        int tries = 5;
 
-        do
+        string randomName = names[UnityEngine.Random.Range(0, names.Length)];
+        Sound s = Array.Find(sounds, sound => sound.name == randomName);
+        if (s == null)
         {
-            s = sounds[UnityEngine.Random.Range(0, sounds.Length)];
-            tries--;
+            Debug.LogWarning("Sound not found: " + randomName);
+            return;
         }
-        while (s.source.isPlaying && tries > 0);
 
-        s.source.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
         s.source.Play();
     }
-
     public bool IsAnyPlaying()
     {
         foreach (Sound s in sounds)

@@ -10,9 +10,9 @@ public class Mainmenu : MonoBehaviour
         mixer.SetFloat("Volume", volume);
     }
 
-    private void Awake()
+    private void Update()
     {
-        AudioManager.instance.Play("Tetris");
+        AudioManager.instance.PlayRandomSounds(new string[] { "Flute", "Start_Mahedam", "Start_Pulse" });
     }
-
+    
 }
