@@ -47,7 +47,43 @@ MonoBehaviour:
   sounds:
   - name: Signaal
     clip: {fileID: 8300000, guid: daed9a0d358c7f84fad583d628069f1b, type: 3}
-    volume: 0.931
+    volume: 1
+    pitch: 1.06
+    loop: 0
+    source: {fileID: 0}
+  - name: vintage
+    clip: {fileID: 8300000, guid: ca0618d014c78c9489bfeaac9ffb83ac, type: 3}
+    volume: 1
+    pitch: 1.06
+    loop: 0
+    source: {fileID: 0}
+  - name: vana
+    clip: {fileID: 8300000, guid: 0363ac54723fd6e4682b52596d1564e9, type: 3}
+    volume: 1
+    pitch: 1.06
+    loop: 0
+    source: {fileID: 0}
+  - name: Tavaline
+    clip: {fileID: 8300000, guid: db273489317f2374fa8cef7cee91cd72, type: 3}
+    volume: 1
+    pitch: 1.06
+    loop: 0
+    source: {fileID: 0}
+  - name: Signaal
+    clip: {fileID: 8300000, guid: daed9a0d358c7f84fad583d628069f1b, type: 3}
+    volume: 1
+    pitch: 1.06
+    loop: 0
+    source: {fileID: 0}
+  - name: jarjest
+    clip: {fileID: 8300000, guid: e38ca8cb3c6585748946bcb1b6ba9de5, type: 3}
+    volume: 1
+    pitch: 1.06
+    loop: 0
+    source: {fileID: 0}
+  - name: 2korda
+    clip: {fileID: 8300000, guid: 335190dd37583ee44b93d288bee98bdf, type: 3}
+    volume: 1
     pitch: 1.06
     loop: 0
     source: {fileID: 0}

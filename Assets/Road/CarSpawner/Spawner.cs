@@ -50,7 +50,7 @@ public class SimpleSpawner : MonoBehaviour
     {
         if (spawnPoints.Count == 0 || prefabs.Count == 0) return;
 
-        float[] laneAngles = { -20f, 0f, 20f }; // vasak, kesk, parem
+        float[] laneAngles = { -40f, 0f, 50f }; // vasak, kesk, parem
 
         GameObject obj = GetPooledObject();
 
@@ -61,7 +61,7 @@ public class SimpleSpawner : MonoBehaviour
         car.Init(
     spawnPoints[lane].position,
     laneAngles[lane],
-    20f
+    60f
 );
 
         obj.transform.position = spawnPoints[lane].position;

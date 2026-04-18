@@ -44,6 +44,35 @@ public class AudioManager : MonoBehaviour {
             return;
         s.source.Play();
     }
+    public void PlayRandom()
+    {
+        if (sounds == null || sounds.Length == 0)
+            return;
 
+        if (IsAnyPlaying())
+            return;
+        Sound s;
+        int tries = 5;
+
+        do
+        {
+            s = sounds[UnityEngine.Random.Range(0, sounds.Length)];
+            tries--;
+        }
+        while (s.source.isPlaying && tries > 0);
+
+        s.source.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        s.source.Play();
+    }
+
+    public bool IsAnyPlaying()
+    {
+        foreach (Sound s in sounds)
+        {
+            if (s.source != null && s.source.isPlaying)
+                return true;
+        }
+        return false;
+    }
 
 }

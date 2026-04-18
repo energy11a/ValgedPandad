@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
@@ -12,6 +13,10 @@ public class GameController : MonoBehaviour
     [Header("Score")]
     public float score = 0f;
     public float crashes = 0f;
+
+    [Header("UI")]
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI crashesText;
 
     public static GameController Instance;
 
@@ -38,29 +43,38 @@ public class GameController : MonoBehaviour
     public void IncrementScore(float amount = 1)
     {
         score += amount;
-        LogScore("INCREASE");
+        UpdateUI();
     }
 
     public void Incrementcrashes(float amount = 1)
     {
         crashes += amount;
+        UpdateUI();
     }
 
     public void DecrementScore(float amount = 1)
     {
         score -= amount;
-        LogScore("DECREASE");
+        UpdateUI();
     }
 
     public void SetScore(float value)
     {
         score = value;
-        LogScore("SET");
+        UpdateUI();
     }
     // ---------------- DEV LOG ----------------
 
     void LogScore(string action)
     {
         Debug.Log($"[SCORE {action}] Current score: {score}");
+    }
+    void UpdateUI()
+    {
+        if (scoreText != null)
+            scoreText.text = "Score: " + score.ToString("0");
+
+        if (crashesText != null)
+            crashesText.text = "Crashes: " + crashes.ToString("0");
     }
 }
