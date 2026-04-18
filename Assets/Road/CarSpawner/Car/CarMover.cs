@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
@@ -46,9 +46,9 @@ public class CarMovement : MonoBehaviour
     {
         transform.Translate(moveDir * speed * Time.deltaTime);
 
+
         float deltaY = startY - transform.position.y;
         float scaleDelta = deltaY * scaleFactor;
-
         transform.localScale = startScale + Vector3.one * scaleDelta;
 
         CheckOutOfScreen();
@@ -66,6 +66,7 @@ public class CarMovement : MonoBehaviour
             {
                 GameController.Instance.IncrementScore(0.1f);
             }
+            transform.localScale = Vector3.one;
             gameObject.SetActive(false);
         }
     }
@@ -75,9 +76,10 @@ public class CarMovement : MonoBehaviour
         {
             if (GameController.Instance != null)
             {
+                GameController.Instance.Incrementcrashes();
                 GameController.Instance.SetScore(0);
             }
-
+            transform.localScale = Vector3.one;
             gameObject.SetActive(false);
         }
     }

@@ -1,4 +1,4 @@
-using UnityEngine.Audio;
+﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
 using JetBrains.Annotations;
@@ -32,10 +32,18 @@ public class AudioManager : MonoBehaviour {
         instance = this;
     }
     public void Play (string name)
-{
-    Sound s = Array.Find(sounds, sound => sound.name == name);
-    s.source.Play();
-}
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound not found: " + name);
+            return;
+        }
+        // kui juba mängib ära tee midagi
+        if (s.source.isPlaying)
+            return;
+        s.source.Play();
+    }
 
 
 }

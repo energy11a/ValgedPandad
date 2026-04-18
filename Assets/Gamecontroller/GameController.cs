@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 
     [Header("Score")]
     public float score = 0f;
+    public float crashes = 0f;
 
     public static GameController Instance;
 
@@ -38,6 +39,11 @@ public class GameController : MonoBehaviour
     {
         score += amount;
         LogScore("INCREASE");
+    }
+
+    public void Incrementcrashes(float amount = 1)
+    {
+        crashes += amount;
     }
 
     public void DecrementScore(float amount = 1)

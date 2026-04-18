@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   sounds:
   - name: Signaal
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: daed9a0d358c7f84fad583d628069f1b, type: 3}
     volume: 0.931
     pitch: 1.06
+    loop: 0
     source: {fileID: 0}
+  mixer: {fileID: 24300002, guid: d93b4cdc184385e4ebc085fe67c66b5a, type: 2}
