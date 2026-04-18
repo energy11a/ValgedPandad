@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 651904083813529809}
   - component: {fileID: 737682562079214191}
   - component: {fileID: 6081008386143354053}
-  m_Layer: 3
+  - component: {fileID: 411586064666533354}
+  - component: {fileID: 1293428892083367020}
+  m_Layer: 7
   m_Name: Car
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +110,20 @@ MonoBehaviour:
   speed: 2
   moveAngle: 0
   angleDegrees: 45
+  randomLogic: {fileID: 411586064666533354}
 --- !u!114 &6081008386143354053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198380439007996143}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3533d10305146da4393c39e2eebca105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DisableOnSpace_NewInput
+--- !u!114 &411586064666533354
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,6 +132,46 @@ MonoBehaviour:
   m_GameObject: {fileID: 9198380439007996143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3533d10305146da4393c39e2eebca105, type: 3}
+  m_Script: {fileID: 11500000, guid: 014f7cac26052ca4392ad1265eecd26d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DisableOnSpace_NewInput
+  m_EditorClassIdentifier: Assembly-CSharp::RandomSpaceDisable
+  chance: 0.764
+  honkCenter: {fileID: 1584737535066578420}
+  honkRadius: 0.1
+--- !u!70 &1293428892083367020
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198380439007996143}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.00000003039894, y: -0.25500482}
+  m_Size: {x: 1.0000001, y: 0.49000347}
+  m_Direction: 1

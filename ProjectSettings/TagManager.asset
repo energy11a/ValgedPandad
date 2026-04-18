@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - HonkAOE
   layers:
   - Default
   - TransparentFX
@@ -11,8 +12,8 @@ TagManager:
   - Road
   - Water
   - UI
-  - 
-  - 
+  - Pcar
+  - Ecar
   - 
   - 
   - 
@@ -40,6 +41,9 @@ TagManager:
   m_SortingLayers:
   - name: Road
     uniqueID: 3043042527
+    locked: 0
+  - name: Player
+    uniqueID: 314468213
     locked: 0
   - name: cars
     uniqueID: 2878973019

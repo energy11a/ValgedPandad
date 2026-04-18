@@ -15,15 +15,20 @@ public class CarMovement : MonoBehaviour
     private float startY;
     private Vector3 startScale;
 
+    [Header("Random logic")]
+    public PersistentRandomSpace randomLogic;
+
     void Awake()
     {
-        // KORRA prefabi eluea jooksul
         startScale = transform.localScale;
     }
 
-    // kutsu seda spawnerist
     public void Init(Vector3 spawnPos, float angle, float scaleAngle)
     {
+        // reset random state
+        if (randomLogic != null)
+            randomLogic.ResetChance();
+
         transform.position = spawnPos;
 
         moveAngle = angle;
@@ -33,7 +38,6 @@ public class CarMovement : MonoBehaviour
         moveDir = new Vector3(Mathf.Sin(rad), -Mathf.Cos(rad), 0f).normalized;
 
         startY = spawnPos.y;
-        
 
         scaleFactor = Mathf.Sin(angleDegrees * Mathf.Deg2Rad);
     }
@@ -43,25 +47,38 @@ public class CarMovement : MonoBehaviour
         transform.Translate(moveDir * speed * Time.deltaTime);
 
         float deltaY = startY - transform.position.y;
-
         float scaleDelta = deltaY * scaleFactor;
 
         transform.localScale = startScale + Vector3.one * scaleDelta;
+
         CheckOutOfScreen();
     }
+
     void CheckOutOfScreen()
     {
         if (Camera.main == null) return;
 
         Vector3 vp = Camera.main.WorldToViewportPoint(transform.position);
 
-        bool outOfBounds =
-            vp.x < -0.2f || vp.x > 1.2f ||
-            vp.y < -0.2f || vp.y > 1.2f;
-
-        if (outOfBounds)
+        if (vp.x < -0.2f || vp.x > 1.2f || vp.y < -0.2f || vp.y > 1.2f)
         {
-            gameObject.SetActive(false); // object pool friendly
+            if (GameController.Instance != null)
+            {
+                GameController.Instance.IncrementScore(0.1f);
+            }
+            gameObject.SetActive(false);
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (GameController.Instance != null)
+            {
+                GameController.Instance.SetScore(0);
+            }
+
+            gameObject.SetActive(false);
         }
     }
 }
