@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class Mainmenu : MonoBehaviour
 {
@@ -14,5 +15,8 @@ public class Mainmenu : MonoBehaviour
     {
         AudioManager.instance.PlayRandomSounds(new string[] { "Flute", "Start_Mahedam", "Start_Pulse" });
     }
-    
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }
