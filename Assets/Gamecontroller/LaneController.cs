@@ -1,25 +1,31 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class LaneController : MonoBehaviour
 {
-    [Header("Lane X offsets (applied to road container)")]
-    public List<float> laneX;
-
     [Header("Movement")]
     public float moveSpeed = 10f;
 
-    [Header("Road container (parent of spawn points & cars)")]
-    public Transform roadContainer;
+    [Header("Spawner (lane positions come from its roadViews)")]
+    public SimpleSpawner spawner;
 
     [Header("Background GameObjects (one per lane: left, center, right)")]
     public List<GameObject> laneBackgrounds;
 
+    [SerializeField] string[] honkNames;
+    [SerializeField] GameObject hand;
+    [SerializeField] float handShowDuration = 0.3f;
+
     public static int CurrentLane { get; private set; } = 1;
+
+    int LaneCount => spawner != null ? spawner.LaneCount : 3;
+    Coroutine handCoroutine;
 
     void Start()
     {
+        if (hand != null) hand.SetActive(false);
         SetActiveBackground(CurrentLane);
     }
 
@@ -36,7 +42,7 @@ public class LaneController : MonoBehaviour
         if (Keyboard.current.rightArrowKey.wasPressedThisFrame ||
             Keyboard.current.dKey.wasPressedThisFrame)
         {
-            CurrentLane = Mathf.Min(laneX.Count - 1, CurrentLane + 1);
+            CurrentLane = Mathf.Min(LaneCount - 1, CurrentLane + 1);
         }
 
         if (CurrentLane != previousLane)
@@ -44,23 +50,53 @@ public class LaneController : MonoBehaviour
             SetActiveBackground(CurrentLane);
         }
 
-        // Shift road container opposite to player lane so cars stay in correct lanes
-        if (roadContainer != null)
+        // Space bar: push the nearest car in the current lane off the road
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            float targetX = -laneX[CurrentLane];
+            AudioManager.instance.StopAndPlayRandom(honkNames);
 
-            Vector3 targetPos = new Vector3(
-                targetX,
-                roadContainer.position.y,
-                roadContainer.position.z
-            );
+            if (hand != null)
+            {
+                if (handCoroutine != null) StopCoroutine(handCoroutine);
+                hand.SetActive(true);
+                handCoroutine = StartCoroutine(HideHandAfterDelay());
+            }
 
-            roadContainer.position = Vector3.Lerp(
-                roadContainer.position,
-                targetPos,
-                moveSpeed * Time.deltaTime
-            );
+            CarBehaviour nearest = FindNearestCarInLane(CurrentLane);
+            if (nearest != null && !nearest.isOut)
+            {
+                nearest.isOut = true;
+                if (GameController.Instance != null)
+                    GameController.Instance.IncrementScore();
+            }
         }
+    }
+
+    IEnumerator HideHandAfterDelay()
+    {
+        yield return new WaitForSeconds(handShowDuration);
+        if (hand != null) hand.SetActive(false);
+    }
+
+    CarBehaviour FindNearestCarInLane(int lane)
+    {
+        CarBehaviour[] cars = FindObjectsByType<CarBehaviour>(FindObjectsSortMode.None);
+        CarBehaviour nearest = null;
+        float closestDist = float.MaxValue;
+
+        foreach (CarBehaviour car in cars)
+        {
+            if (car.laneIndex == lane && !car.isOut)
+            {
+                float dist = Mathf.Abs(car.transform.position.y);
+                if (dist < closestDist)
+                {
+                    closestDist = dist;
+                    nearest = car;
+                }
+            }
+        }
+        return nearest;
     }
 
     void SetActiveBackground(int lane)

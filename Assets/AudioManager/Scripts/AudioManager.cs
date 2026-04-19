@@ -62,6 +62,29 @@ public class AudioManager : MonoBehaviour {
 
         s.source.Play();
     }
+    public void StopAndPlayRandom(string[] names)
+    {
+        if (names == null || names.Length == 0)
+            return;
+
+        // Stop all currently playing sounds
+        foreach (Sound s in sounds)
+        {
+            if (s.source != null && s.source.isPlaying)
+                s.source.Stop();
+        }
+
+        string randomName = names[UnityEngine.Random.Range(0, names.Length)];
+        Sound s2 = Array.Find(sounds, sound => sound.name == randomName);
+        if (s2 == null)
+        {
+            Debug.LogWarning("Sound not found: " + randomName);
+            return;
+        }
+
+        s2.source.Play();
+    }
+
     public bool IsAnyPlaying()
     {
         foreach (Sound s in sounds)
