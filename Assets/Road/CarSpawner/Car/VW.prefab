@@ -49,12 +49,13 @@ MonoBehaviour:
   frontView: {fileID: 9203994553868234728}
   sideView: {fileID: 8849613749573570313}
   isOut: 0
+  stubborn: 0
   laneIndex: 1
   moveSpeed: 5
   spawner: {fileID: 0}
   maxScale: 0.7
-  scaleInPortion: 0.3
-  scaleOutPortion: 0.2
+  scaleInPortion: 0.9
+  scaleOutPortion: 0.02
   sideExitSpeed: 8
 --- !u!1 &8849613749573570313
 GameObject:
