@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: spawnInterval
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 296875621365064016, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
+      propertyPath: surviveTimeToWin
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 794388809254148075, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.16
@@ -161,7 +165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1497154644726296414, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: carSpeed
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1497154644726296414, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: carPrefabs.Array.size
