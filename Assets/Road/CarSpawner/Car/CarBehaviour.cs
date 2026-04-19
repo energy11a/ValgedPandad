@@ -21,6 +21,10 @@ public class CarBehaviour : MonoBehaviour
     [Tooltip("How much of the journey (0-0.5) is used to scale down to 0 at the end")]
     public float scaleOutPortion = 0.2f;
 
+    [Header("Speed")]
+    [Tooltip("Kiirusekordaja autodele, mis sõidavad kõrvalrajal (mitte sinu rajal)")]
+    public float sideSpeedMultiplier = 2.5f;
+
     public float sideExitSpeed = 8f;
     float destroyTimer = 0f;
     float progress = 0f;
@@ -66,7 +70,11 @@ public class CarBehaviour : MonoBehaviour
             float totalDist = Vector3.Distance(startPos, endPos);
             if (totalDist < 0.001f) { Destroy(gameObject); return; }
 
-            progress += (moveSpeed / totalDist) * Time.deltaTime;
+            float speed = moveSpeed;
+            if (laneIndex != LaneController.CurrentLane)
+                speed *= sideSpeedMultiplier;
+
+            progress += (speed / totalDist) * Time.deltaTime;
             progress = Mathf.Clamp01(progress);
 
             transform.position = Vector3.Lerp(startPos, endPos, progress);
