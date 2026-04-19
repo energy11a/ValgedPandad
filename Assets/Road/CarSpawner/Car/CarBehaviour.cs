@@ -25,6 +25,9 @@ public class CarBehaviour : MonoBehaviour
     float destroyTimer = 0f;
     float progress = 0f;
     int exitDirection = -1; // 1 = right, -1 = left
+    bool hasPassedPlayer = false;
+    public bool HasPassedPlayer => hasPassedPlayer;
+    public float Progress => progress;
 
     void Start()
     {
@@ -88,13 +91,19 @@ public class CarBehaviour : MonoBehaviour
             }
             transform.localScale = new Vector3(scale, scale, 1f);
 
-            if (progress >= 1f)
+            // Auto on juba möödunud mängijast kui ta hakkab väiksemaks minema
+            if (!hasPassedPlayer && progress > 1f - scaleOutPortion)
             {
+                hasPassedPlayer = true;
                 if (laneIndex == LaneController.CurrentLane)
                 {
                     if (GameController.Instance != null)
                         GameController.Instance.Incrementcrashes();
                 }
+            }
+
+            if (progress >= 1f)
+            {
                 Destroy(gameObject);
             }
         }

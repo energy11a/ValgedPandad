@@ -82,16 +82,15 @@ public class LaneController : MonoBehaviour
     {
         CarBehaviour[] cars = FindObjectsByType<CarBehaviour>(FindObjectsSortMode.None);
         CarBehaviour nearest = null;
-        float closestDist = float.MaxValue;
+        float highestProgress = -1f;
 
         foreach (CarBehaviour car in cars)
         {
-            if (car.laneIndex == lane && !car.isOut)
+            if (car.laneIndex == lane && !car.isOut && !car.HasPassedPlayer)
             {
-                float dist = Mathf.Abs(car.transform.position.y);
-                if (dist < closestDist)
+                if (car.Progress > highestProgress)
                 {
-                    closestDist = dist;
+                    highestProgress = car.Progress;
                     nearest = car;
                 }
             }
