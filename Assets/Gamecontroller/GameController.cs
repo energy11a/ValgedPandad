@@ -186,21 +186,21 @@ public class GameController : MonoBehaviour
             if (winCondition == WinConditionType.Score)
             {
                 float remaining = Mathf.Max(0, scoreToWin - score);
-                objectiveText.text = $"Autosid veel maha ajada: {remaining:0}";
+                objectiveText.text = $"Cars to push off: {remaining:0}";
             }
             else
             {
                 float remaining = Mathf.Max(0, surviveTimeToWin - surviveTimer);
-                objectiveText.text = $"Jää ellu veel: {remaining:0} sek";
+                objectiveText.text = $"Stay alive for : {remaining:0} sek";
             }
         }
 
         if (instructionText != null)
         {
             if (winCondition == WinConditionType.Score)
-                instructionText.text = $"Aja {scoreToWin:0} autot teelt maha, et võita!";
+                instructionText.text = $"Push {scoreToWin:0} cars off the road, to win!";
             else
-                instructionText.text = $"Jää {surviveTimeToWin:0} sekundit ellu!";
+                instructionText.text = $"Stay alive for  {surviveTimeToWin:0} seconds!";
         }
     }
 }

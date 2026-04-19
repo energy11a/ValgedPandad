@@ -6,6 +6,31 @@ public class Mainmenu : MonoBehaviour
 {
    [SerializeField] AudioMixer mixer;
 
+    [Header("Panels")]
+    [Tooltip("Kõik menüü paneelid (nt Main, LevelSelect, Settings jne)")]
+    [SerializeField] GameObject[] panels;
+
+    private const string LastPanelKey = "LastActivePanel";
+
+    private void Start()
+    {
+        int savedIndex = PlayerPrefs.GetInt(LastPanelKey, -1);
+        if (savedIndex >= 0 && savedIndex < panels.Length)
+        {
+            ShowPanel(savedIndex);
+        }
+        PlayerPrefs.DeleteKey(LastPanelKey);
+    }
+
+    public void ShowPanel(int index)
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i] != null)
+                panels[i].SetActive(i == index);
+        }
+    }
+
     public void ChangeVolume(float volume)
     {
         mixer.SetFloat("Volume", volume);
@@ -24,7 +49,20 @@ public class Mainmenu : MonoBehaviour
     }
     public void LoadScene(string sceneName)
     {
+        SaveActivePanel();
         SceneManager.LoadScene(sceneName);
     }
 
+    private void SaveActivePanel()
+    {
+        for (int i = 0; i < panels.Length; i++)
+        {
+            if (panels[i] != null && panels[i].activeSelf)
+            {
+                PlayerPrefs.SetInt(LastPanelKey, i);
+                PlayerPrefs.Save();
+                return;
+            }
+        }
+    }
 }
