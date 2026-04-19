@@ -24,7 +24,7 @@ public class CarBehaviour : MonoBehaviour
     public float sideExitSpeed = 8f;
     float destroyTimer = 0f;
     float progress = 0f;
-    int exitDirection = 1; // 1 = right, -1 = left
+    int exitDirection = -1; // 1 = right, -1 = left
 
     void Start()
     {
