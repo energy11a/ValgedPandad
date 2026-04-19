@@ -140,6 +140,7 @@ MonoBehaviour:
   frontView: {fileID: 7369912704628746632}
   sideView: {fileID: 2437511885764781978}
   isOut: 0
+  stubborn: 0
   laneIndex: 1
   moveSpeed: 5
   spawner: {fileID: 0}

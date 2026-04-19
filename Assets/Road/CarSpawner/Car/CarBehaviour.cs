@@ -95,11 +95,6 @@ public class CarBehaviour : MonoBehaviour
                     if (GameController.Instance != null)
                         GameController.Instance.Incrementcrashes();
                 }
-                else
-                {
-                    if (GameController.Instance != null)
-                        GameController.Instance.IncrementScore();
-                }
                 Destroy(gameObject);
             }
         }
