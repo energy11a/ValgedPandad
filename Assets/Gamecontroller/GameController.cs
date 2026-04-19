@@ -34,8 +34,10 @@ public class GameController : MonoBehaviour
     public int maxCrashes = 0;
 
     [Header("UI")]
-    public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI crashesText;
+    [Tooltip("Näitab mängijale, mitu autot on veel vaja maha ajada või kui kaua ellu jääda")]
+    public TextMeshProUGUI objectiveText;
+    [Tooltip("Lühike juhis mängijale, mida teha tuleb")]
+    public TextMeshProUGUI instructionText;
     public GameObject startScreen;
     public GameObject winScreen;
     public GameObject loseScreen;
@@ -93,6 +95,7 @@ public class GameController : MonoBehaviour
         if (winCondition == WinConditionType.SurviveTime)
         {
             surviveTimer += Time.deltaTime;
+            UpdateUI();
             if (surviveTimer >= surviveTimeToWin)
             {
                 Win();
@@ -177,10 +180,27 @@ public class GameController : MonoBehaviour
 
     void UpdateUI()
     {
-        if (scoreText != null)
-            scoreText.text = "Score: " + score.ToString("0");
 
-        if (crashesText != null)
-            crashesText.text = "Crashes: " + crashes.ToString("0");
+        if (objectiveText != null)
+        {
+            if (winCondition == WinConditionType.Score)
+            {
+                float remaining = Mathf.Max(0, scoreToWin - score);
+                objectiveText.text = $"Autosid veel maha ajada: {remaining:0}";
+            }
+            else
+            {
+                float remaining = Mathf.Max(0, surviveTimeToWin - surviveTimer);
+                objectiveText.text = $"Jää ellu veel: {remaining:0} sek";
+            }
+        }
+
+        if (instructionText != null)
+        {
+            if (winCondition == WinConditionType.Score)
+                instructionText.text = $"Aja {scoreToWin:0} autot teelt maha, et võita!";
+            else
+                instructionText.text = $"Jää {surviveTimeToWin:0} sekundit ellu!";
+        }
     }
 }
