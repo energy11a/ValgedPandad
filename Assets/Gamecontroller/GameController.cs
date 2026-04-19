@@ -36,15 +36,20 @@ public class GameController : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI crashesText;
+    public GameObject startScreen;
     public GameObject winScreen;
     public GameObject loseScreen;
 
+    public string[] music;
+
     [Header("Events")]
+    public UnityEvent onGameStart;
     public UnityEvent onWin;
     public UnityEvent onLose;
 
     public static GameController Instance;
 
+    bool gameStarted = false;
     bool gameOver = false;
     float surviveTimer = 0f;
 
@@ -55,15 +60,35 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        if (startScreen != null) startScreen.SetActive(true);
+        if (winScreen != null) winScreen.SetActive(false);
+        if (loseScreen != null) loseScreen.SetActive(false);
+    }
+
+    public void StartGame()
+    {
+        if (gameStarted) return;
+        gameStarted = true;
+        
+        score = 0f;
+        crashes = 0f;
+        gameOver = false;
+        surviveTimer = 0f;
+        UpdateUI();
+
+        if (startScreen != null) startScreen.SetActive(false);
         if (winScreen != null) winScreen.SetActive(false);
         if (loseScreen != null) loseScreen.SetActive(false);
 
         InvokeRepeating(nameof(SpawnObject), startDelay, spawnInterval);
+        onGameStart?.Invoke();
     }
 
     void Update()
     {
-        if (gameOver) return;
+        AudioManager.instance.PlayRandomSounds(music);
+
+        if (!gameStarted || gameOver) return;
 
         if (winCondition == WinConditionType.SurviveTime)
         {

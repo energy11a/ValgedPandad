@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 public class AudioManager : MonoBehaviour {
 
     public Sound[] sounds;
-    [SerializeField] AudioMixerGroup mixer;
+    [SerializeField] AudioMixerGroup mixer, sfx, music;
     public static AudioManager instance;
 
     void Awake() 
@@ -22,8 +22,14 @@ public class AudioManager : MonoBehaviour {
             s.source.pitch = s.pitch;
             s.source.spatialBlend = 0f;
             s.source.loop = s.loop;
-            s.source.outputAudioMixerGroup = mixer;
-
+            if(s.isSFX)
+            {
+                s.source.outputAudioMixerGroup = sfx;
+            }
+            else
+            {
+                s.source.outputAudioMixerGroup = music;
+            }
         }
     }
     void CreateInstance()
@@ -67,10 +73,10 @@ public class AudioManager : MonoBehaviour {
         if (names == null || names.Length == 0)
             return;
 
-        // Stop all currently playing sounds
+        // Stop only currently playing SFX sounds
         foreach (Sound s in sounds)
         {
-            if (s.source != null && s.source.isPlaying)
+            if (s.isSFX && s.source != null && s.source.isPlaying)
                 s.source.Stop();
         }
 
