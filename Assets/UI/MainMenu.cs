@@ -10,7 +10,14 @@ public class Mainmenu : MonoBehaviour
     {
         mixer.SetFloat("Volume", volume);
     }
-
+    public void ChangeVolumSFXe(float volume)
+    {
+        mixer.SetFloat("SFXVolume", volume);
+    }
+    public void ChangeVolumeMusic(float volume)
+    {
+        mixer.SetFloat("MusicVolume", volume);
+    }
     private void Update()
     {
         AudioManager.instance.PlayRandomSounds(new string[] { "Flute", "Start_Mahedam", "Start_Pulse" });
@@ -19,4 +26,5 @@ public class Mainmenu : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
 }
