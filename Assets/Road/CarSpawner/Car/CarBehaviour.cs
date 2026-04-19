@@ -5,6 +5,9 @@ public class CarBehaviour : MonoBehaviour
     [SerializeField] GameObject frontView, sideView;
     public bool isOut = false;
 
+    [Header("Kangekaelne (ei sõida teelt maha)")]
+    public bool stubborn = false;
+
     [HideInInspector] public int laneIndex = 1;
     [HideInInspector] public float moveSpeed = 5f;
     [HideInInspector] public SimpleSpawner spawner;
@@ -31,6 +34,8 @@ public class CarBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (stubborn) isOut = false;
+
         if (isOut)
         {
             if (frontView != null) frontView.SetActive(false);
@@ -38,7 +43,7 @@ public class CarBehaviour : MonoBehaviour
 
             // Mirror the side view on X axis based on exit direction
             Vector3 sideScale = sideView != null ? sideView.transform.localScale : Vector3.one;
-            sideScale.x = Mathf.Abs(sideScale.x) * exitDirection * -1;
+            sideScale.x = Mathf.Abs(sideScale.x) * exitDirection ;
             if (sideView != null) sideView.transform.localScale = sideScale;
 
             transform.Translate(Vector3.right * exitDirection * sideExitSpeed * Time.deltaTime, Space.World);
