@@ -2,7 +2,15 @@ using UnityEngine;
 
 public class CarBehaviour : MonoBehaviour
 {
-    [SerializeField] GameObject frontView, sideView;
+    [Header("Views")]
+    [Tooltip("Otse sinu poole sõitev vaade")]
+    [SerializeField] GameObject frontView;
+    [Tooltip("1 raja kaugusel olev külgvaade")]
+    [SerializeField] GameObject sideViewNear;
+    [Tooltip("2 raja kaugusel olev külgvaade")]
+    [SerializeField] GameObject sideViewFar;
+    [Tooltip("Välja signaalitud auto külgvaade")]
+    [SerializeField] GameObject sideViewOut;
     public bool isOut = false;
 
     [Header("Kangekaelne (ei sõida teelt maha)")]
@@ -33,6 +41,43 @@ public class CarBehaviour : MonoBehaviour
     public bool HasPassedPlayer => hasPassedPlayer;
     public float Progress => progress;
 
+    void UpdateView()
+    {
+        int laneDist = Mathf.Abs(laneIndex - LaneController.CurrentLane);
+        SetAllViewsInactive();
+
+        if (laneDist == 0)
+        {
+            if (frontView != null) frontView.SetActive(true);
+        }
+        else if (laneDist == 1)
+        {
+            if (sideViewNear != null) sideViewNear.SetActive(true);
+            MirrorView(sideViewNear, laneIndex < LaneController.CurrentLane ? 1 : -1);
+        }
+        else
+        {
+            if (sideViewFar != null) sideViewFar.SetActive(true);
+            MirrorView(sideViewFar, laneIndex < LaneController.CurrentLane ? 1 : -1);
+        }
+    }
+
+    void SetAllViewsInactive()
+    {
+        if (frontView != null) frontView.SetActive(false);
+        if (sideViewNear != null) sideViewNear.SetActive(false);
+        if (sideViewFar != null) sideViewFar.SetActive(false);
+        if (sideViewOut != null) sideViewOut.SetActive(false);
+    }
+
+    void MirrorView(GameObject view, int direction)
+    {
+        if (view == null) return;
+        Vector3 s = view.transform.localScale;
+        s.x = Mathf.Abs(s.x) * direction;
+        view.transform.localScale = s;
+    }
+
     void Start()
     {
         transform.localScale = Vector3.zero;
@@ -45,13 +90,13 @@ public class CarBehaviour : MonoBehaviour
 
         if (isOut)
         {
-            if (frontView != null) frontView.SetActive(false);
-            if (sideView != null) sideView.SetActive(true);
+            SetAllViewsInactive();
+            if (sideViewOut != null) sideViewOut.SetActive(true);
 
             // Mirror the side view on X axis based on exit direction
-            Vector3 sideScale = sideView != null ? sideView.transform.localScale : Vector3.one;
-            sideScale.x = Mathf.Abs(sideScale.x) * exitDirection ;
-            if (sideView != null) sideView.transform.localScale = sideScale;
+            Vector3 sideScale = sideViewOut != null ? sideViewOut.transform.localScale : Vector3.one;
+            sideScale.x = Mathf.Abs(sideScale.x) * exitDirection;
+            if (sideViewOut != null) sideViewOut.transform.localScale = sideScale;
 
             transform.Translate(Vector3.right * exitDirection * sideExitSpeed * Time.deltaTime, Space.World);
 
@@ -98,6 +143,8 @@ public class CarBehaviour : MonoBehaviour
                 scale = maxScale;
             }
             transform.localScale = new Vector3(scale, scale, 1f);
+
+            UpdateView();
 
             // Auto on juba möödunud mängijast kui ta hakkab väiksemaks minema
             if (!hasPassedPlayer && progress > 1f - scaleOutPortion)

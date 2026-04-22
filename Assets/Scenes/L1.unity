@@ -150,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 220590028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 756, y: -323, z: -9720}
+  m_LocalPosition: {x: 393, y: 100, z: -9720}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -249,7 +249,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 138, y: 116.88}
+  m_AnchoredPosition: {x: -540, y: 340}
   m_SizeDelta: {x: 605.6, y: 233.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &404448639
@@ -272,7 +272,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press A or D to switch lanes.
+  m_text: 'Use A / D or arrow keys to switch lanes.
+
+    Press SPACE to honk and
+    push cars out of the way.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -299,7 +304,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 45.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -409,6 +414,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+--- !u!114 &1008516479 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+  m_PrefabInstance: {fileID: 1008516478}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04367c3de418ae541897ae3539116017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
 --- !u!1 &1210882151
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +451,7 @@ Transform:
   m_GameObject: {fileID: 1210882151}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 433, y: -63, z: -9720}
+  m_LocalPosition: {x: 45, y: 271, z: -9720}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -557,7 +573,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You lose if the car crashes into you.
+  m_text: 'You lose if you crash.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -584,7 +602,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 68.4
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -664,7 +682,7 @@ PrefabInstance:
     - target: {fileID: 296875621365064016, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      objectReference: {fileID: 1008516479}
     - target: {fileID: 296875621365064016, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: onLose.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
@@ -726,6 +744,14 @@ PrefabInstance:
       value: 'These are instructions for the GAME:
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514702793127842012, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
+      propertyPath: m_fontSize
+      value: 70.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1514702793127842012, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
+      propertyPath: m_margin.z
+      value: -189.34476
       objectReference: {fileID: 0}
     - target: {fileID: 1514702793127842012, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: m_fontColor.b
@@ -874,7 +900,11 @@ PrefabInstance:
     - target: {fileID: 6357452757904244287, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: e5d64c60b34333c47a0e06497e2d1a09, type: 3}
+      objectReference: {fileID: 4531127856655987640, guid: 60e5aabe9f6e59e41aace9e19247ce38, type: 3}
+    - target: {fileID: 6453885033999734320, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6586845227031783813, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.29
@@ -939,6 +969,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b6bc226c12885a84c98464d15ac8edc3, type: 3}
+    - target: {fileID: 6912316927679213710, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6925120814038498265, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: m_Type
       value: 0
@@ -965,11 +999,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7558989667896328425, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 182.64
+      value: 675
       objectReference: {fileID: 0}
     - target: {fileID: 7558989667896328425, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -407
+      value: -382
       objectReference: {fileID: 0}
     - target: {fileID: 7604896579900223206, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       propertyPath: m_Color.a
@@ -1057,6 +1091,8 @@ PrefabInstance:
     - {fileID: 5196035886425081437, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
     - {fileID: 2686698266029247223, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
     - {fileID: 4188565830783252441, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
+    - {fileID: 260502397338761362, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
+    - {fileID: 5423299094746583192, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4391854115192423088, guid: 51c6074101e8f764883116f78e2a2dc2, type: 3}
       insertIndex: -1
@@ -1135,7 +1171,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You win if you push enough cars out of the way.
+  m_text: 'You win by clearing enough cars from the road.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1162,7 +1200,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.05
+  m_fontSize: 62.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -178,7 +178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6584576005337854572, guid: dc58417caa48c6949acb350257c14c1b, type: 3}
+  m_Sprite: {fileID: -6584576005337854572, guid: 7a0cdb49b05fcbe4bb09615d798fcf53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -290,6 +290,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: nupp
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &20116523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +400,7 @@ MonoBehaviour:
   m_text: 'Musicians: Johannes, Raiko'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -418,7 +430,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -527,7 +539,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6584576005337854572, guid: dc58417caa48c6949acb350257c14c1b, type: 3}
+  m_Sprite: {fileID: -6584576005337854572, guid: 7a0cdb49b05fcbe4bb09615d798fcf53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -579,8 +591,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -367, y: 0.000015259}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -324.67, y: 0.000015259}
+  m_SizeDelta: {x: 284.66, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436533481
 MonoBehaviour:
@@ -605,7 +617,7 @@ MonoBehaviour:
   m_text: "Programmers: Innar, Kaur, J\xFCrgen"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -635,7 +647,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -682,6 +694,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436533479}
   m_CullTransparentMesh: 1
+--- !u!114 &453979450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+  m_PrefabInstance: {fileID: 1667081683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04367c3de418ae541897ae3539116017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
 --- !u!1 &575485947
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +765,7 @@ MonoBehaviour:
   m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -772,7 +795,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -988,6 +1011,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hiir
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &629357062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,7 +1124,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2800732811876902941, guid: a057e9c3dff313646b16519e5fab0e77, type: 3}
+  m_Sprite: {fileID: -2800732811876902941, guid: 567aadf70b2c4d046826333280bddd87, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1483,7 +1518,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6584576005337854572, guid: dc58417caa48c6949acb350257c14c1b, type: 3}
+  m_Sprite: {fileID: -6584576005337854572, guid: 7a0cdb49b05fcbe4bb09615d798fcf53, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1561,7 +1596,7 @@ MonoBehaviour:
   m_text: 'Artists: Innar, Regina'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1591,7 +1626,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1980,6 +2015,18 @@ MonoBehaviour:
           m_StringArgument: L2
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: nupp
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &923847257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2000,7 +2047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e04c946187d954f49a1dff0cf0fc8280, type: 3}
+  m_Sprite: {fileID: 1215884994515328767, guid: 9f8b3c46d4a3f6541a0dd98f4735067a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2112,6 +2159,18 @@ MonoBehaviour:
           m_StringArgument: L3
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hiir
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1108794451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2132,7 +2191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6e49890982b842f4ab1511f5cd650d1e, type: 3}
+  m_Sprite: {fileID: 803973994376521623, guid: b84fe8bdc292f634cb34951443952501, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2462,6 +2521,18 @@ MonoBehaviour:
           m_StringArgument: L1
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hiir
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1267985908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2482,7 +2553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0d88d3763a54cc149bd38186e5c9e3de, type: 3}
+  m_Sprite: {fileID: 6736675808902423061, guid: a9b04a512d5e00b48a14e0081a91c703, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2557,7 +2628,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 966926d769f1bcd448c2a0fb0a3db0ee, type: 3}
+  m_Sprite: {fileID: -7642780902381273226, guid: 7134d05c75c1a57408fa6b11c9592b7b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2632,7 +2703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 966926d769f1bcd448c2a0fb0a3db0ee, type: 3}
+  m_Sprite: {fileID: -7642780902381273226, guid: 7134d05c75c1a57408fa6b11c9592b7b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2744,6 +2815,18 @@ MonoBehaviour:
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: nupp
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1411819069
@@ -3060,7 +3143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
       propertyPath: sounds.Array.size
-      value: 13
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
       propertyPath: sounds.Array.data[4].clip
@@ -3129,10 +3212,66 @@ PrefabInstance:
     - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
       propertyPath: sounds.Array.data[12].clip
       value: 
-      objectReference: {fileID: 8300000, guid: 5ed940f296abed942b646c210e432d49, type: 3}
+      objectReference: {fileID: 8300000, guid: 49a762384c2084a498051b7e8f76856c, type: 3}
     - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
       propertyPath: sounds.Array.data[12].name
       value: Teistmoodi
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[13].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 894b8bf90ab9f53458a0db36c038fc59, type: 3}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[13].name
+      value: hiir
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[14].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 01939f1e7bb66f347b63c626eda3d499, type: 3}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[14].name
+      value: nupp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[15].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 49a762384c2084a498051b7e8f76856c, type: 3}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[15].name
+      value: Teistmoodi
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[13].isSFX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[13].pitch
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[14].isSFX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[14].pitch
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[15].pitch
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[13].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[14].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194326895545299423, guid: 01ef505feff2d454e92f7ef6fada0950, type: 3}
+      propertyPath: sounds.Array.data[15].volume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3330,6 +3469,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hiir
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1756744850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3497,7 +3648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 966926d769f1bcd448c2a0fb0a3db0ee, type: 3}
+  m_Sprite: {fileID: -7642780902381273226, guid: 7134d05c75c1a57408fa6b11c9592b7b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3819,6 +3970,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hiir
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1973253015
@@ -4206,6 +4369,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 453979450}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: nupp
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2088835822

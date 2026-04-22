@@ -14,12 +14,10 @@ public class Mainmenu : MonoBehaviour
 
     private void Start()
     {
-        int savedIndex = PlayerPrefs.GetInt(LastPanelKey, -1);
-        if (savedIndex >= 0 && savedIndex < panels.Length)
-        {
-            ShowPanel(savedIndex);
-        }
+        int savedIndex = PlayerPrefs.GetInt(LastPanelKey, 0);
         PlayerPrefs.DeleteKey(LastPanelKey);
+        PlayerPrefs.Save();
+        ShowPanel(savedIndex);
     }
 
     public void ShowPanel(int index)
